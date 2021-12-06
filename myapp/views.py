@@ -26,11 +26,6 @@ def my_view(request):
     else:
         form = DocumentForm()  # An empty, unbound form
 
-    # Load documents for the main page
-    # documents = Document.objects.all()
-
-    # Render list page with the documents and the form
-    # context = {'documents': documents, 'form': form, 'message': message}
     context = {'form': form, 'message': message}
 
     return render(request, 'main_page.html', context)
