@@ -4,14 +4,9 @@ from .models import Document
 from .forms import DocumentForm
 from django.conf import settings
 
-import codecs
 import xml.etree.ElementTree as ET
-import sys
-import csv
 import pandas as pd
-import numpy as np
 import os, io, zipfile
-import difflib
 from datetime import datetime
 
 
