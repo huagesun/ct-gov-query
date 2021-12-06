@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="icon" href="/media/image/logo_square.png" type="image/x-icon"/>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="keywords" content="ClinicalTrials.gov, Clinical Trials Extraction"> 
+        <title>Clinical Trials Extraction</title>
+    </head>
+
+    <body>
+        <div id="header">
+            <div id="weblogo">
+                <h3>ClinicalTrials.gov Extraction</h3>
+            </div>
+        </div>
+        
+        <div id="section">
+
+            <h1>Upload ClinicalTrials.gov Records</h1>
+
+            <form action="{% url "my-view" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <p>{{ message }}</p>
+                <p>{{ form.non_field_errors }}</p>
+
+                <p>
+                    {{ form.docfile.help_text }}
+                    {{ form.docfile.errors }}
+                    {{ form.docfile }}
+                </p>
+
+                <p>
+                    <input class="button button1" type="submit" value="Upload & Get the Extracted CSVs"/>
+                </p>
+
+            </form>
+
+            <form id="documentation" method="get" action="/media/documents/documentation.docx">
+                <p><button class="button button2" type="submit">Download Documentation</button></p>
+            </form>
+
+        </div>
+        
+        <div id="footer">
+            <a id="weblink" href="http://www.nihds.pku.edu.cn/">http://www.nihds.pku.edu.cn/</a>
+        </div>
+
+    </body>
+</html>
